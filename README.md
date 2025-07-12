@@ -9,6 +9,8 @@ Instructor: Dr. Shangqing Zhao
 
 **Messager** is a secure, Java-based, peer-to-peer (P2P) messaging application designed for encrypted text communication between two users. It uses JavaFX for the user interface and incorporates strong encryption and authentication mechanisms for secure communication.
 
+<img src="messager_demo.gif" alt="GIF demonstrating Messager's features" width="500"/>
+
 ## Features
 
 - Peer-to-peer (P2P) communication using sockets

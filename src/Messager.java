@@ -15,6 +15,7 @@ import javax.crypto.spec.SecretKeySpec;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
@@ -165,7 +166,7 @@ public class Messager extends Application {
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
-            receiver.close();
+            receiver.shutdown();
         });
 
         /*
@@ -308,10 +309,26 @@ public class Messager extends Application {
                 } else {
                     text.setFill(Color.WHITE);
                 }
-                messageField.add(text, 0, messageField.getRowCount());
+                messageField.add(text, 0, getRowCount(messageField));
             }
         };
         Platform.runLater(runnable);
     }
+
+
+    private int getRowCount(GridPane pane) {
+        int numRows = pane.getRowConstraints().size(); 
+        for (int i = 0; i < pane.getChildren().size(); i++) {
+            Node child = pane.getChildren().get(i);
+            if (child.isManaged()) { // Check if the child is managed, i.e. part of the layout
+                Integer rowIndex = GridPane.getRowIndex(child); 
+                if(rowIndex != null){
+                    numRows = Math.max(numRows,rowIndex+1); 
+                }
+            }
+        }
+        return numRows;
+    }
+
 
 }
