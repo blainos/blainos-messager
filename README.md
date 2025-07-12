@@ -77,12 +77,6 @@ Instructor: Dr. Shangqing Zhao
 - **Host/Client Class Redundancy**:
   - Hoster and Clienter share similar logic and could be merged using a shared superclass or strategy pattern.
 
-## Screenshots
-
-*(Insert screenshots of the login screen and messaging interface if available.)*
-
-## Build and Run
-
 ### Prerequisites
 
 - Java JDK 11+
